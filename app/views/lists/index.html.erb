@@ -1,0 +1,15 @@
+<%#= image_tag "cinema.jpg", alt: "Cinema", width: 200 %>
+<div class='banner-index' style='background-image: url(<%= image_path 'cinema.jpg' %>)'>
+  <h1 class="text-white">Discover your lists</h1>
+</div>
+
+
+
+<% @lists.each do |list| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to list.name, list_path(list) %></h5>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Create a list", new_list_path() %>

@@ -1,0 +1,19 @@
+<p><strong><%= @list.name %></strong></p>
+<% @bookmarks.each do |bookmark| %>
+  <%= bookmark.movie.title %>
+  <%= bookmark.comment %>
+  <%= link_to "Delete",
+      bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <div class="card" style="width: 18rem;">
+    <%= image_tag 'cinema.jpg', class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title title-movie-card"><%= bookmark.movie.title %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+<% end %>
+
+<li><%= link_to "Back to your lists", root_path %></li>
+<li><%= link_to "Add a movie", new_list_bookmark_path(@list) %></li>
